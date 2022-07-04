@@ -1,0 +1,32 @@
+{% extends "AppProyecto/padre.html" %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+
+<h5>Buscar una Cantante o Grupo:</h5>
+
+<form action="/AppProyecto/buscar/" method="POST">
+
+    <input type="text" name="grupo">
+
+    <input type="submit" value="Buscar">
+
+</form>
+
+{% if cantantes %}
+
+<p>Estamos buscando el: {{grupo}}</p>
+
+<ul>
+{% for cantante in cantantes %}
+    <li> {{cantantes.nombre}} </li>
+    <li> {{cantantes.grupo}} </li>
+{% endfor %}
+
+</ul>
+
+{% endif %}
+
+
+{% endblock %}

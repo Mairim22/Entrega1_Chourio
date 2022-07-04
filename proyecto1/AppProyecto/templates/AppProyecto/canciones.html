@@ -1,0 +1,35 @@
+{% extends "AppProyecto/padre.html" %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+
+
+    <h1>Agregar Cancion</h1>
+    
+    {% if Formulario2.errors %}
+
+    <p style="color: red;"> Están mal los datos, revisar</p>
+
+    {% endif %}
+
+
+    <form action="" method="POST">{% csrf_token %}
+
+        
+        
+        <table>
+
+            {{ Formulario1.as_table }}
+
+
+        </table>
+
+
+        <input type="submit", value="Enviar">
+
+    </form>
+
+  
+
+{% endblock %}

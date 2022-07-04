@@ -1,0 +1,35 @@
+{% extends "AppProyecto/padre.html" %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+
+
+    <h1>Agregar Discos</h1>
+    
+    {% if Formulario5.errors %}
+
+    <p style="color: red;"> Están mal los datos, revisar</p>
+
+    {% endif %}
+
+
+    <form action="" method="POST">{% csrf_token %}
+
+        
+        
+        <table>
+
+            {{ Formulario5.as_table }}
+
+
+        </table>
+
+
+        <input type="submit", value="Enviar">
+
+    </form>
+
+  
+
+{% endblock %}
