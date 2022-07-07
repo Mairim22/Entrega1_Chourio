@@ -4,6 +4,7 @@ from AppProyecto.models import Canciones, Cantantes, Discos
 from AppProyecto.forms import MusicaFormulario, CancionFormulario, CantantesFormulario, DiscosFormulario
 #from django import loader
 
+
 # Create your views here.
 def inicio(request):
 
@@ -50,18 +51,22 @@ def musicaFormulario(request):
     return render(request, "AppProyecto/musicaFormulario.html", {"Formulario":Formulario})
 
 #BUSCADOR
+
 def buscar(request):
     
-    if request.GET["grupo"]:
+    if request.POST['grupo']:
 
-        grupo = request.GET['grupo']
+        grupo = request.POST['grupo']
         print(grupo)
         cantante = Cantantes.objects.filter(grupo__icontains=grupo)
-        return render(request, "AppProyecto/inicio.html")
+        print(cantante.values())
+        return render(request, "AppProyecto/inicio.html", {"cantantes": cantante.values()})
+        
+
     else:
         respuesta = "No enviaste datos"
-    return render(request, "AppProyecto/canciones.html", {"respuesta":respuesta})
-      
+    return render(request,"AppProyecto/cantantes.html", {"respuesta":respuesta})
+
 #CANCIONES
 def canciones(request):
     

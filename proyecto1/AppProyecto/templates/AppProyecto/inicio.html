@@ -6,7 +6,7 @@
 
 <h5>Buscar una Cantante o Grupo:</h5>
 
-<form action="/AppProyecto/buscar/" method="POST">
+<form action="/AppProyecto/buscar/" method="POST"> {% csrf_token %}
 
     <input type="text" name="grupo">
 
@@ -20,8 +20,8 @@
 
 <ul>
 {% for cantante in cantantes %}
-    <li> {{cantantes.nombre}} </li>
-    <li> {{cantantes.grupo}} </li>
+    <li> {{cantante.nombre}} </li>
+    <li> {{cantante.grupo}} </li>
 {% endfor %}
 
 </ul>

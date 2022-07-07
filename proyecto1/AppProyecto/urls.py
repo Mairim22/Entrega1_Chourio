@@ -1,6 +1,7 @@
 from django.urls import path
 
 from AppProyecto import views
+from .views import buscar
 
 urlpatterns = [
     path('', views.inicio, name="Inicio"),
